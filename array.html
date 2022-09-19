@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <title>Adivinanza</title>
+    </head>
+    <h1>Adivina el numero</h1>
+
+    <input/>
+    <button>Desvelar secreto</button>
+    <script>
+
+        function saltodelinea() {
+            document.write("<br><br>");
+        };
+        function imprimir(texto) {
+            document.write(texto);
+            saltodelinea();
+        };
+        
+        function aleatorio() {
+            return Math.round(Math.random()*10);
+        }
+        function generador(cantidad) {
+            var secretos = [];
+            var contador = 1;
+
+            while(contador <= cantidad) {
+                numeroAleatorio = aleatorio();
+                secretos.push(numeroAleatorio);
+                var encontrado = false;
+
+                if (numeroAleatorio != 0) {
+                    for (var posicion = 0; posicion < secretos.length; posicion++) {
+                        if (numeroAleatorio == secretos[posicion]) {
+                            encontrado = true;
+                            break;
+                        }
+
+                        if (encontrado == false) {
+                            secretos.push(numeroAleatorio);
+                            contador++;
+                        }
+                    }
+                }
+            }
+
+            return secretos
+        }
+
+        var secretos = generador(8);
+        var input = document.querySelector("input");
+        input.focus();
+
+        function verificar() {
+            var encontrado = false;
+
+            for(var posicion = 0; posicion < secretos.length; posicion++) {
+                if (parseInt(input.value) == secretos[posicion]) {
+                    alert("Usted acerto");
+                    encontrado = true
+                    break;
+                }
+            }
+            
+            if(encontrado == false) {
+                alert("Usted erro");
+            }
+            
+            input.value = "";
+            input.focus();
+        } 
+
+        var button = document.querySelector("button")
+        button.onclick = verificar;
+    </script>
+
+</html>

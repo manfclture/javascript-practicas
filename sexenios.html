@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <title>Adivinanza</title>
+    </head>
+    <h1>Adivina el numero</h1>
+
+    <script>
+
+        function saltodelinea() {
+            document.write("<br><br>");
+        };
+        function imprimir(texto) {
+            document.write(texto);
+            saltodelinea();
+        };
+        
+        var anho_limite = parseInt(prompt("Introduce el anho"));
+
+        for (var anho_elecciones = 1910; anho_elecciones <= anho_limite; anho_elecciones = anho_elecciones + 6) {
+            imprimir("En el anho " + anho_elecciones + " hubo o habra elecciones");
+        };
+
+        imprimir("Exit")
+
+    </script>
+
+</html>

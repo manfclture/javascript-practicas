@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <title>IMC</title>
+    </head>
+    <h1>IMC</h1>
+
+    <script>
+        function saltodelinea() {
+            document.write("<br><br>");
+        };
+        function imprimir(texto) {
+            document.write(texto);
+            saltodelinea();
+        };
+        function imc(peso, altura) {
+           return peso / (altura * altura)
+        };
+
+        var nombre = prompt("Escribe tu nombre");
+        var peso = parseFloat(prompt(nombre + ", escribe tu peso"));
+        var altura = parseFloat(prompt(nombre + ", escribe tu altura"));
+        var indice = parseFloat(imc(peso,altura));
+
+        imprimir(nombre + ", tu indice es de " + indice);
+
+        if (indice < 18.5) {
+            imprimir("IMC en rango de peso bajo");
+        };
+
+        if (indice <= 24.9 && indice >= 18.5) {
+            imprimir("IMC en rango de peso normal");
+        };
+
+        if (indice <= 30 && indice >= 24.9) {
+            imprimir("IMC en rango de sobrepeso");
+        };
+
+        if (indice > 30) {
+            imprimir("IMC en rango de obesidad");
+        };
+
+    </script>
+
+</html>
